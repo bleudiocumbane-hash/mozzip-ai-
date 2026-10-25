@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#075e35">
+  <title>MozZip AI - Anúncios de Moçambique</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f7f4;
+      color: #183326;
+    }
+    header {
+      background: #075e35;
+      color: white;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 8px; font-size: 30px; }
+    nav { margin-top: 18px; }
+    nav a {
+      color: white;
+      margin: 6px;
+      display: inline-block;
+    }
+    main { max-width: 700px; margin: auto; padding: 16px; }
+    section {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px #0000000c;
+    }
+    h2 { color: #075e35; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #bdcfc3;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 16px;
+      border: 0;
+      border-radius: 8px;
+      background: #087b46;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .plan { border-left: 4px solid #087b46; padding-left: 12px; }
+    .nota { font-size: 14px; color: #53665a; }
+    footer { text-align: center; padding: 22px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MozZip AI</h1>
+    <p>Descobre negócios e serviços em Moçambique.</p>
+    <nav>
+      <a href="#anuncios">Anúncios</a>
+      <a href="#planos">Planos</a>
+      <a href="#publicar">Colocar anúncio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="anuncios">
+      <h2>Anúncios de negócios</h2>
+      <p>Encontra produtos, lojas e serviços perto de ti.</p>
+      <p class="nota">Os anúncios aprovados serão apresentados aqui quando o sistema de publicação estiver ligado.</p>
+    </section>
+
+    <section id="planos">
+      <h2>Planos de publicidade</h2>
+      <p class="plan"><b>Básico — 100 MT</b><br>7 dias</p>
+      <p class="plan"><b>Destaque — 300 MT</b><br>7 dias</p>
+      <p class="plan"><b>Premium — 700 MT</b><br>30 dias</p>
+      <p class="plan"><b>Empresarial — 1.500 MT</b><br>30 dias</p>
+      <p class="nota">Horários previstos: 07h–10h e 19h–22h.</p>
+    </section>
+
+    <section id="publicar">
+      <h2>Colocar anúncio</h2>
+      <p>Preenche os dados do teu negócio. O pedido será enviado para análise.</p>
+
+      <form id="formulario">
+        <label for="negocio">Nome do negócio</label>
+        <input id="negocio" required placeholder="Ex.: Loja do Bairro">
+
+        <label for="categoria">Categoria</label>
+        <select id="categoria" required>
+          <option value="">Escolhe uma categoria</option>
+          <option>Restaurante</option>
+          <option>Loja</option>
+          <option>Moda</option>
+          <option>Tecnologia</option>
+          <option>Beleza</option>
+          <option>Construção</option>
+          <option>Serviços</option>
+          <option>Outro</option>
+        </select>
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" required rows="3" placeholder="O que o teu negócio oferece?"></textarea>
+
+        <label for="telefone">Contacto do negócio</label>
+        <input id="telefone" required placeholder="Número de telefone ou WhatsApp">
+
+        <label for="plano">Escolhe o plano</label>
+        <select id="plano" required>
+          <option value="">Escolhe um plano</option>
+          <option>Básico — 100 MT / 7 dias</option>
+          <option>Destaque — 300 MT / 7 dias</option>
+          <option>Premium — 700 MT / 30 dias</option>
+          <option>Empresarial — 1.500 MT / 30 dias</option>
+        </select>
+
+        <button type="submit">Enviar pedido pelo WhatsApp</button>
+      </form>
+      <p class="nota">Depois de enviar, combina o pagamento e manda o comprovativo pelo WhatsApp. O anúncio não fica publicado automaticamente.</p>
+    </section>
+  </main>
+
+  <footer>MozZip AI · Moçambique</footer>
+
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const mensagem =
+        "PEDIDO DE ANÚNCIO - MozZip AI\n\n" +
+        "Negócio: " + document.getElementById("negocio").value + "\n" +
+        "Categoria: " + document.getElementById("categoria").value + "\n" +
+        "Descrição: " + document.getElementById("descricao").value + "\n" +
+        "Contacto: " + document.getElementById("telefone").value + "\n" +
+        "Plano: " + document.getElementById("plano").value + "\n\n" +
+        "Quero receber instruções para pagar e enviar o comprovativo.";
+      window.open(
+        "https://wa.me/258844685518?text=" + encodeURIComponent(mensagem),
+        "_blank"
+      );
+    });
+  </script>
+</body>
+</html>
